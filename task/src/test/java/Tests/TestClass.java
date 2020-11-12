@@ -11,10 +11,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Method;
 import java.nio.file.Paths;
-import java.util.Objects;
 import java.util.logging.Logger;
+
+import static com.codeborne.selenide.Selenide.open;
 
 public class TestClass {
 
@@ -34,7 +34,7 @@ public class TestClass {
     @Test
     public void first_test(){
         LOGGER.info("Test started!");
-        Selenide.open("https://lm.skillbox.ru/qa_tester/module01/");
+        open("https://lm.skillbox.ru/qa_tester/module01/");
         MainPage page = new MainPage();
 
         Assert.assertTrue("Поле для ввода не существует на странице", page.name_input.exists());
@@ -60,7 +60,7 @@ public class TestClass {
     public void second_test(){
         LOGGER.info("Test started!");
         SecondPage page = new SecondPage();
-        Selenide.open("http://qa.skillbox.ru/module09/practice4/Kontakty/index.html");
+        open("http://qa.skillbox.ru/module09/practice4/Kontakty/index.html");
 
         if (page.first_element.getAttribute("type").equals( "button")){
             LOGGER.info("первый элемент найден");
@@ -82,7 +82,7 @@ public class TestClass {
             LOGGER.info("пятый элемент найден");
         }
 
-        Selenide.open("http://qa.skillbox.ru/module09/practice4/Catalog/index.html");
+        open("http://qa.skillbox.ru/module09/practice4/Catalog/index.html");
 
         if (page.sixth_element.getAttribute("class").equals("catalog")){
             LOGGER.info("шестой элемент найден");
